@@ -29,7 +29,7 @@
 				<button id="updateBtn" type="submit" class="btn btn-warning mb-3">수정</button>
 				<button id="deleteBtn" type="button" class="btn btn-danger mb-3">삭제</button>
 			</h2>
-			<form name="personDetailForm" class="row g-3" method="post">
+			<form name="productDetailForm" class="row g-3" method="post">
 
 				<div class="input-group mb-3">
 					<div class="input-group mb-3">
@@ -56,7 +56,7 @@
 				<div class="input-group mb-3">
 						<span class="input-group-text">등급</span> <input type="text"
 							class="form-control" name="grade" value="<%=pd.getGrade()%>"
-							aria-label="prdname">
+							aria-label="grade">
 					</div>
 		</div>
 
@@ -67,16 +67,10 @@
 		document.getElementById('updateBtn').addEventListener('click', (e)=> {
 			e.preventDefault();
 			let form = document.productDetailForm;
-			if(form.prdName.value == "") {
-				alert('이름은 필수입니다.');
-				form.prdName.focus();
-				return false;
-			} else {
 				if(confirm('수정하겠습니까?')) {
 					form.action = "updateProduct_proc.jsp";
 					form.submit();
 				}
-			}
 		});
 		document.getElementById('deleteBtn').addEventListener('click', (e)=> {
 			e.preventDefault();

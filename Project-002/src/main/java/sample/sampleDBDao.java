@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class sampleDBDao {
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -155,5 +156,49 @@ public class sampleDBDao {
 		}
 		
 		return pd;
+	}
+	
+	public int updateProductInfo(ProductDto pd) {
+		String sql = "UPDATE product_info SET prdname = ?, price = ?, company = ?, address = ?, grade = ? WHERE prdid = ?";
+		int result = 0;
+		try {
+			connect();
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, pd.getPrdname());
+			psmt.setInt(2, pd.getPrice());
+			psmt.setString(3, pd.getCompany());
+			psmt.setString(4, pd.getAddress());
+			psmt.setString(5, pd.getGrade());
+			psmt.setInt(6, pd.getPrdid());
+			
+			result = psmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		
+		return result;	
+	}
+	public int deleteProductInfo(int prdid) {
+		String sql = "DELETE FROM product_info WHERE prdid = ?";
+		int result = 0;
+		try {
+			connect();
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, prdid);
+			
+			result = psmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		
+		return result;
 	}
 }
