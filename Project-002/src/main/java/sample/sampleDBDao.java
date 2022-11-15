@@ -15,7 +15,7 @@ public class sampleDBDao {
 	ResultSet rs = null;
 
 	public void connect() throws Exception {
-		String db_url = "jdbc:oracle:thin:@localhost:1521:orcl"; // 접속 db정보
+		String db_url = "jdbc:oracle:thin:@localhost:1522:orcl"; // 접속 db정보
 		String db_id = "scott"; // 접속 아이디
 		String db_pw = "tiger"; // 접속 비밀번호
 
