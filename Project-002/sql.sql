@@ -3,24 +3,24 @@
 --create table worker(          
 --    id          varchar2(20)  primary key,
 --    pwd         varchar2(20)
--- Ãß°¡ÀÔ·ÂÁ¤º¸ (ÇÊ¿ä¿¡ µû¶ó Ãß°¡)
+-- ì¶”ê°€ì…ë ¥ì •ë³´ (í•„ìš”ì— ë”°ë¼ ì¶”ê°€)
 --    name        varchar2(40),
 --    phone       varchar2(20)
 --);
 
---±âÁ¸ Å×ÀÌºí Á¦°Å 
+--ê¸°ì¡´ í…Œì´ë¸” ì œê±° 
 alter table member drop primary key cascade;
 drop table member;
 create table member(   
-    id         varchar2(20)  primary key,    --È¸¿ø ¾ÆÀÌµğ
-    pwd        varchar2(20),  -- È¸¿ø ºñ¹Ğ¹øÈ£
-    name       varchar2(40), -- È¸¿ø ÀÌ¸§ 
-    email      varchar2(40), -- È¸¿ø ÀÌ¸ŞÀÏ 
-    zip_num    varchar2(7),  -- ÁÖ¼Ò(¿ìÆí¹øÈ£)
-    address    varchar2(100), --ÁÖ¼Ò 
-    phone      varchar2(20), -- ¿¬¶ôÃ³
-    useyn      char(1)       default 'y',      -- °èÁ¤ È°¼º¿©ºÎ 
-    indate     date          default sysdate   -- °¡ÀÔ³¯ÀÚ 
+    id         varchar2(20)  primary key,    --íšŒì› ì•„ì´ë””
+    pwd        varchar2(20),  -- íšŒì› ë¹„ë°€ë²ˆí˜¸
+    name       varchar2(40), -- íšŒì› ì´ë¦„ 
+    email      varchar2(40), -- íšŒì› ì´ë©”ì¼ 
+    zip_num    varchar2(7),  -- ì£¼ì†Œ(ìš°í¸ë²ˆí˜¸)
+    address    varchar2(100), --ì£¼ì†Œ 
+    phone      varchar2(20), -- ì—°ë½ì²˜
+    useyn      char(1)       default 'y',      -- ê³„ì • í™œì„±ì—¬ë¶€ 
+    indate     date          default sysdate   -- ê°€ì…ë‚ ì 
 );
 
 alter table product drop primary key cascade;
@@ -44,12 +44,12 @@ create sequence product_seq start with 1;
 alter table cart drop primary key cascade;
 drop table cart;
 create table cart (
-  cseq         number(10)    primary key,  -- Àå¹Ù±¸´Ï¹øÈ£
-  id           varchar(16)   references member(id),  -- ÁÖ¹®ÀÚ ¾ÆÀÌµğ(FK :¡¡member.id) 
-  pseq         number(5)     references product(pseq), -- ÁÖ¹® »óÇ°¹øÈ£(FK :product.pseq) 
-  quantity     number(5)     default 1,        -- ÁÖ¹® ¼ö·®
-  result       char(1)       default '1',      -- 1:¹ÌÃ³¸® 2:Ã³¸®
-  indate       date          default SYSDATE   -- ÁÖ¹®ÀÏ
+  cseq         number(10)    primary key,  -- ì¥ë°”êµ¬ë‹ˆë²ˆí˜¸
+  id           varchar(16)   references member(id),  -- ì£¼ë¬¸ì ì•„ì´ë””(FK :ã€€member.id) 
+  pseq         number(5)     references product(pseq), -- ì£¼ë¬¸ ìƒí’ˆë²ˆí˜¸(FK :product.pseq) 
+  quantity     number(5)     default 1,        -- ì£¼ë¬¸ ìˆ˜ëŸ‰
+  result       char(1)       default '1',      -- 1:ë¯¸ì²˜ë¦¬ 2:ì²˜ë¦¬
+  indate       date          default SYSDATE   -- ì£¼ë¬¸ì¼
 );
 drop sequence cart_seq;
 create sequence cart_seq start with 1;
@@ -57,9 +57,9 @@ create sequence cart_seq start with 1;
 alter table orders drop primary key cascade;
 drop table orders;
 create table orders(
-  oseq        number(10)    primary key,           -- ÁÖ¹®¹øÈ£  
-  id          varchar(16)   references member(id), -- ÁÖ¹®ÀÚ ¾ÆÀÌµğ
-  indate      date          default sysdate       -- ÁÖ¹®ÀÏ
+  oseq        number(10)    primary key,           -- ì£¼ë¬¸ë²ˆí˜¸  
+  id          varchar(16)   references member(id), -- ì£¼ë¬¸ì ì•„ì´ë””
+  indate      date          default sysdate       -- ì£¼ë¬¸ì¼
 );
 drop sequence orders_seq;
 create sequence orders_seq start with 1;
@@ -67,122 +67,26 @@ create sequence orders_seq start with 1;
 alter table order_detail drop primary key cascade;
 drop table order_detail;
 create table order_detail(
-  odseq       number(10)   primary key,        -- ÁÖ¹®»ó¼¼¹øÈ£
-  oseq        number(10)   references orders(oseq),   -- ÁÖ¹®¹øÈ£  
-  pseq        number(5)    references product(pseq),  -- »óÇ°¹øÈ£
-  quantity    number(5)    default 1,                 -- ÁÖ¹®¼ö·®
-  result      char(1)      default '1'                -- 1: ¹ÌÃ³¸® 2: Ã³¸®     
+  odseq       number(10)   primary key,        -- ì£¼ë¬¸ìƒì„¸ë²ˆí˜¸
+  oseq        number(10)   references orders(oseq),   -- ì£¼ë¬¸ë²ˆí˜¸  
+  pseq        number(5)    references product(pseq),  -- ìƒí’ˆë²ˆí˜¸
+  quantity    number(5)    default 1,                 -- ì£¼ë¬¸ìˆ˜ëŸ‰
+  result      char(1)      default '1'                -- 1: ë¯¸ì²˜ë¦¬ 2: ì²˜ë¦¬     
 );
 drop sequence order_detail_seq;
 create sequence order_detail_seq start with 1;
 
---Q&A °Ô½ÃÆÇÀº °í°´ÀÌ ¼îÇÎ¸ô¿¡¼­ Á¦Ç°ÀÇ ¹®ÀÇ»çÇ× ¶Ç´Â ¹è¼Û¹®ÀÇ¿Í °°Àº Á¦¹İÀûÀÎ »çÇ×¿¡ ´ëÇØ¼­ Áú¹®À» ÇÏ°íÀÚ ÇÒ ¶§ »ç¿ëÇÑ´Ù. 
+--Q&A ê²Œì‹œíŒì€ ê³ ê°ì´ ì‡¼í•‘ëª°ì—ì„œ ì œí’ˆì˜ ë¬¸ì˜ì‚¬í•­ ë˜ëŠ” ë°°ì†¡ë¬¸ì˜ì™€ ê°™ì€ ì œë°˜ì ì¸ ì‚¬í•­ì— ëŒ€í•´ì„œ ì§ˆë¬¸ì„ í•˜ê³ ì í•  ë•Œ ì‚¬ìš©í•œë‹¤. 
 alter table qna drop primary key cascade;
 drop table qna;
 create table qna (
-  qseq        number(5)    primary key,  -- ±Û¹øÈ£ 
-  subject     varchar(300),            -- Á¦¸ñ
-  content     varchar(1000),          -- ¹®ÀÇ³»¿ë
-  reply       varchar(1000),           -- ´äº¯³»¿ë
-  id          varchar(20),                 -- ÀÛ¼ºÀÚ(FK : member.id) 
-  rep         char(1)       default '1',        --1:´äº¯ ¹«  2:´äº¯ À¯  
-  indate      date default  sysdate     -- ÀÛ¼ºÀÏ
+  qseq        number(5)    primary key,  -- ê¸€ë²ˆí˜¸ 
+  subject     varchar(300),            -- ì œëª©
+  content     varchar(1000),          -- ë¬¸ì˜ë‚´ìš©
+  reply       varchar(1000),           -- ë‹µë³€ë‚´ìš©
+  id          varchar(20),                 -- ì‘ì„±ì(FK : member.id) 
+  rep         char(1)       default '1',        --1:ë‹µë³€ ë¬´  2:ë‹µë³€ ìœ   
+  indate      date default  sysdate     -- ì‘ì„±ì¼
 ); 
 drop sequence qna_seq;
 create sequence qna_seq start with 1;
-
--- »ùÇÃ µ¥ÀÌÅÍ ÀÔ·Â
-insert into worker values('admin', 'admin', 'È«°ü¸®', '010-777-7777');
-insert into worker values('pinksung', 'pinksung', '¸í°­»ç', '010-999-9696');
-
-insert into member(id, pwd, name, zip_num, address, phone) values
-('one', '1111', '±è³ª¸®', '133-110', '¼­¿ï½Ã¼ºµ¿±¸¼º¼öµ¿1°¡ 1¹øÁö21È£', '017-777-7777');
-insert into member(id, pwd, name, zip_num, address, phone) values
-('two', '2222', 'ÀÌ¹éÇÕ', '130-120', '¼­¿ï½Ã¼ÛÆÄ±¸Àá½Ç2µ¿ ¸®¼¾Ã÷ ¾ÆÆÄÆ® 201µ¿ 505È£', '011-123-4567');
-
-insert into product(pseq, name, kind, price1, price2, price3, content, image) values(
-product_seq.nextval, 'Å©·Î±×´ÙÀÏºÎÃ÷', '2', '40000', '50000', '10000', '¿ÀÁö´Ï¶ö Å©·Î±×´ÙÀÏºÎÃ÷ ÀÔ´Ï´Ù.', 'w2.jpg');
-insert into product(pseq, name, kind, price1, price2, price3, content, image, bestyn) values(
-product_seq.nextval, '·ÕºÎÃ÷', '2', 40000, 50000, 10000,'µû¶æÇÑ ·ÕºÎÃ÷ ÀÔ´Ï´Ù.', 'w-28.jpg', 'n');
-insert into product(pseq,  name, kind, price1, price2, price3, content, image, bestyn) values( 
-product_seq.nextval, 'Èú', '1', '10000', '12000', '2000', '¿©¼º¿ëÀü¿ë Èú', 'w-26.jpg', 'n');
-insert into product(pseq,  name, kind, price1, price2, price3, content, image, bestyn) values(
-product_seq.nextval, '½½¸®ÆÛ', '4', '5000', '5500', '500', 'Æí¾ÈÇÑ ½½¸®ÆÛÀÔ´Ï´Ù.', 'w-25.jpg', 'y');
-insert into product(pseq,  name, kind, price1, price2, price3, content, image, bestyn) values(
-product_seq.nextval, 'È¸»öÈú', '1', '10000', '12000', '2000', '¿©¼º¿ëÀü¿ë Èú', 'w9.jpg', 'n');
-insert into product(pseq,  name, kind, price1, price2, price3, content, image) values(
-product_seq.nextval, '¿©¼ººÎÃ÷', '2', '12000', '18000', '6000', '¿©¼º¿ë ºÎÃ÷', 'w4.jpg');
-insert into product(pseq,  name, kind, price1, price2, price3, content, image, bestyn) values(
-product_seq.nextval,  'ÇÎÅ©»÷´Ş', '3', '5000', '5500', '500', '»ç°èÀı¿ë »÷´ŞÀÔ´Ï´Ù.', 'w-10.jpg', 'y');
-insert into product(pseq,  name, kind, price1, price2, price3, content, image, bestyn) values(
-product_seq.nextval, '½½¸®ÆÛ', '3', '5000', '5500', '500', 'Æí¾ÈÇÑ ½½¸®ÆÛÀÔ´Ï´Ù.', 'w11.jpg', 'y');
-insert into product(pseq,  name, kind, price1, price2, price3, content, image) values(
-product_seq.nextval,  '½º´ÏÄ¿Áî', '4', '15000', '20000', '5000', 'È°µ¿¼ºÀÌ ÁÁÀº ½º´ÏÄ¿ÁîÀÔ´Ï´Ù.', 'w1.jpg');
-insert into product(pseq,  name, kind, price1, price2, price3, content, image, bestyn) values(
-product_seq.nextval,  '»÷´Ş', '3', '5000', '5500', '500', '»ç°èÀı¿ë »÷´ŞÀÔ´Ï´Ù.', 'w-09.jpg','n');
-insert into product(pseq,  name, kind, price1, price2, price3, content, image, bestyn) values(
-product_seq.nextval,  '½º´ÏÄ¿Áî', '5', '15000', '20000', '5000', 'È°µ¿¼ºÀÌ ÁÁÀº ½º´ÏÄ¿ÁîÀÔ´Ï´Ù.', 'w-05.jpg','n');
-
-insert into cart(cseq,id, pseq, quantity) values(cart_seq.nextval, 'one', 1, 1);
-
-insert into orders(oseq, id) values(orders_seq.nextval, 'one');
-insert into orders(oseq, id) values(orders_seq.nextval, 'one');
-insert into orders(oseq, id) values(orders_seq.nextval, 'two');
-
-insert into order_detail(odseq, oseq, pseq, quantity) 
-values(order_detail_seq.nextval, 1, 1, 1);
-insert into order_detail(odseq, oseq, pseq, quantity) 
-values(order_detail_seq.nextval, 1, 2, 5);
-insert into order_detail(odseq, oseq, pseq, quantity) 
-values(order_detail_seq.nextval, 2,  4, 3);
-insert into order_detail(odseq, oseq, pseq, quantity) 
-values(order_detail_seq.nextval, 3, 3, 1);
-insert into order_detail(odseq, oseq, pseq, quantity) 
-values(order_detail_seq.nextval, 3, 2, 1);
-insert into order_detail(odseq, oseq, pseq, quantity) 
-values(order_detail_seq.nextval, 3, 6, 2);
-insert into order_detail(odseq, oseq, pseq, quantity) 
-values(order_detail_seq.nextval, 3, 1, 2);
-
-insert into qna (qseq, subject, content, id)
-values(qna_seq.nextval, 'Å×½ºÆ®', 'Áú¹®³»¿ë1', 'one');
-update qna SET reply='´äº¯³»¿ë', rep='2';
-
-insert into qna (qseq, subject, content, id)
-values(qna_seq.nextval, 'Å×½ºÆ®2', 'Áú¹®³»¿ë2', 'one');
-commit;
-
-create or replace view cart_view
-as
-select o.cseq, o.id, o.pseq, m.name mname, p.name pname, 
-o.quantity, o.indate, p.price2, o.result 
-from cart o, member m, product p 
-where o.id = m.id and o.pseq = p.pseq
-and result='1';
-
-create or replace view order_view
-as
-select d.odseq, o.oseq, o.id, o.indate, d.pseq,d.quantity, m.name mname,
-m.zip_num, m.address, m.phone, p.name pname, p.price2, d.result   
-from orders o, order_detail d, member m, product p 
-where o.oseq=d.oseq and o.id = m.id and d.pseq = p.pseq;
-           
--- º£½ºÆ® »óÇ°
-create or replace view best_pro_view
-as
-select pseq, name, price2, image 
-from( select rownum, pseq, name, price2, image 
-      from product  
-      where bestyn='y' 
-      order by indate desc)
-where  rownum <=4;
-
--- ½Å»óÇ°
-create or replace view new_pro_view
-as
-select pseq, name, price2, image 
-from( select rownum, pseq, name, price2, image 
-      from product  
-      where useyn='y' 
-      order by indate desc)
-where  rownum <=4;
