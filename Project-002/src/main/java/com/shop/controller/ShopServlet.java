@@ -16,8 +16,8 @@ public class ShopServlet extends HttpServlet {
 
   protected void doGet(HttpServletRequest request,
       HttpServletResponse response) throws ServletException, IOException {
-    String command = request.getParameter("command");
-    //Command 요청 이클립스 Console 내 확인 
+	 //Command 요청 이클립스 Console 내 확인 
+	String command = request.getParameter("command");
     System.out.println("ShopServlet에서 요청을 받음을 확인 : " + command);
 
     ActionFactory af = ActionFactory.getInstance();
@@ -27,7 +27,7 @@ public class ShopServlet extends HttpServlet {
       action.execute(request, response);
     }
   }
-
+//한글 깨짐 방지 코드 , doPost 방식으로 호출되어도 doGet으로 요청 처리
   protected void doPost(HttpServletRequest request,
       HttpServletResponse response) throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
