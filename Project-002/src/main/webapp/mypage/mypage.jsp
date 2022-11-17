@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>  
 <%@ include file="../header.jsp" %>  
-<%@ include file="sub_img.html"%> 
-<%@ include file="sub_menu.jsp" %>       
+<%@ include file="mySubMenu.jsp" %>       
   <div class="container py-5 h-100">  
   <div class="row justify-content-center align-items-center h-100"> 
   <article>

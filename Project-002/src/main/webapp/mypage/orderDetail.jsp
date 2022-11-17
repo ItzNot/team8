@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>  
 <%@ include file="../header.jsp" %>  
-<%@ include file="sub_img.html"%> 
-<%@ include file="sub_menu.jsp" %>       
+<%@ include file="mySubMenu.jsp" %>       
   <article>
     <h2> My Page(주문 상세 정보) </h2>
     <form name="formm" method="post">
