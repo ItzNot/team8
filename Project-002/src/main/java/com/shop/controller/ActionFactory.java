@@ -1,5 +1,6 @@
 package com.shop.controller;
 
+import com.shop.controller.action.JoinAction;
 import com.shop.controller.action.*;
 
 public class ActionFactory {
@@ -27,8 +28,8 @@ public class ActionFactory {
       action = new JoinFormAction();
     } else if (command.equals("id_check_form")) {
       action = new IdCheckFormAction();
-    } else if (command.equals("find_zip_num")) {
-      action = new JoinAction();
+    } else if (command.equals("join")) {
+        action = new JoinAction();
     } else if (command.equals("login_form")) {
       action = new LoginFormAction();
     } else if (command.equals("login")) {
