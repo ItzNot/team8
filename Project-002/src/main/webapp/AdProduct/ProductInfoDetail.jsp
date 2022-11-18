@@ -48,8 +48,8 @@
 							class="form-control" name="name" value="<%=pd.getName()%>"
 							aria-label="name" required> 
 						<span class="input-group-text">상품가격</span>
-						<input type="text" class="form-control" name="price1"
-							value="<%=pd.getPrice1()%>" aria-label="price1" required>
+						<input type="text" class="form-control" name="price2"
+							value="<%=pd.getPrice2()%>" aria-label="price2" required>
 					</div>
 
 					<span class="input-group-text">제품종류</span> <input type="text"

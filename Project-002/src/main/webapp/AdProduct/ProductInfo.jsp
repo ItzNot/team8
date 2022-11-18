@@ -25,7 +25,7 @@
 	<span class="input-group-text">상품명</span>
   <input type="text" class="form-control" name="name" placeholder="Product-Name" value="" aria-label="name" required>
   <span class="input-group-text">상품가격</span>
-  <input type="text" class="form-control" name="price1" placeholder="Product-Price1" value="" aria-label="price1" required>
+  <input type="text" class="form-control" name="price2" placeholder="Product-Price" value="" aria-label="price2" required>
 </div>
 <br/>
 <br/>

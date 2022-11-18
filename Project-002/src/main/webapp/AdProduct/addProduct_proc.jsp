@@ -25,13 +25,13 @@
 		
 		String name1 = multi.getParameter("name");
 // 		request.getParameter("prdName"); //input name칸 변수명
-		int price1 = Integer.parseInt(multi.getParameter("price1").toString());
+		int price2 = Integer.parseInt(multi.getParameter("price2").toString());
 		String kind = multi.getParameter("kind");
 		String content = multi.getParameter("content");
 		
 		
 		sampleDBDao spd = new sampleDBDao();
-		int result = spd.insertProductInfo(name1, kind, price1, content, filename);
+		int result = spd.insertProductInfo(name1, kind, price2, content, filename);
 		
 		if(result > 0) {
 	%>

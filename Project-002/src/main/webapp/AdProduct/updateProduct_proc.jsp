@@ -29,7 +29,7 @@
 		String filename = multi.getFilesystemName(name);
 		
 		String name1 = multi.getParameter("name"); //input name칸 변수명
-		int price1 = Integer.parseInt(multi.getParameter("price1"));
+		int price2 = Integer.parseInt(multi.getParameter("price2"));
 		int pseq = Integer.parseInt(multi.getParameter("pseq"));
 		String kind = multi.getParameter("kind");
 		String content = multi.getParameter("content");
@@ -37,7 +37,7 @@
 		
 		ProductDto pd = new ProductDto();
 		pd.setName(name1);
-		pd.setPrice1(price1);
+		pd.setPrice2(price2);
 		pd.setKind(kind);
 		pd.setContent(content);
 		pd.setBestyn(bestyn);

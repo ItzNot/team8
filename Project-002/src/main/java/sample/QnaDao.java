@@ -14,7 +14,7 @@ public class QnaDao {
 	ResultSet rs = null;
 
 	public void connect() throws Exception {
-		String db_url = "jdbc:oracle:thin:@localhost:1521:orcl"; // 접속 db정보
+		String db_url = "jdbc:oracle:thin:@localhost:1522:orcl"; // 접속 db정보
 		String db_id = "scott"; // 접속 아이디
 		String db_pw = "tiger"; // 접속 비밀번호
 
@@ -104,7 +104,7 @@ public class QnaDao {
 	}
 	
 	public int updateQnaInfo(QnaDto qd) {
-		String sql = "UPDATE qna SET reply = ?, rep = 'y' WHERE qseq = ?";
+		String sql = "UPDATE qna SET reply = ?, rep = '2' WHERE qseq = ?";
 		int result = 0;
 		try {
 			connect();

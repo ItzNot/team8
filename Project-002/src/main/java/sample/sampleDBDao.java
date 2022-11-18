@@ -15,7 +15,7 @@ public class sampleDBDao {
 	ResultSet rs = null;
 
 	public void connect() throws Exception {
-		String db_url = "jdbc:oracle:thin:@localhost:1521:orcl"; // 접속 db정보
+		String db_url = "jdbc:oracle:thin:@localhost:1522:orcl"; // 접속 db정보
 		String db_id = "scott"; // 접속 아이디
 		String db_pw = "tiger"; // 접속 비밀번호
 
@@ -44,7 +44,7 @@ public class sampleDBDao {
 	}
 	
 	public List<ProductDto> selectProductList() {
-		String sql = "SELECT pseq, name, kind, price1, content, bestyn, indate FROM PRODUCT order by pseq DESC";
+		String sql = "SELECT pseq, name, kind, price2, content, bestyn, indate FROM PRODUCT order by pseq DESC";
 		List<ProductDto> productInfo = null;
 		try {
 			connect();
@@ -57,7 +57,7 @@ public class sampleDBDao {
 				pt.setPseq(rs.getInt("pseq"));
 				pt.setName(rs.getString("name"));
 				pt.setKind(rs.getString("kind"));
-				pt.setPrice1(rs.getInt("price1"));
+				pt.setPrice2(rs.getInt("price2"));
 				pt.setContent(rs.getString("content"));
 				pt.setBestyn(rs.getString("bestyn"));
 				pt.setIndate(rs.getDate("indate"));
@@ -72,7 +72,7 @@ public class sampleDBDao {
 		}
 		return productInfo;
 	}
-	public int insertProductInfo(String name, String kind, int price1, String content, String image) {
+	public int insertProductInfo(String name, String kind, int price2, String content, String image) {
 		String sql = "INSERT INTO PRODUCT (pseq, name, kind, price1, content, image) VALUES (product_seq.nextval, ?, ?, ?, ?, ?)";
 		int result = 0;
 		try {
@@ -81,7 +81,7 @@ public class sampleDBDao {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, name);
 			psmt.setString(2, kind);
-			psmt.setInt(3, price1);
+			psmt.setInt(3, price2);
 			psmt.setString(4, content);
 			psmt.setString(5, image);
 			
@@ -96,7 +96,7 @@ public class sampleDBDao {
 		return result;
 	}
 	public ProductDto selectProductInfoById(int pseq) {
-		String sql = "SELECT pseq, name, kind, price1, content, NVL(image, 'default.jpg') image, bestyn, indate FROM PRODUCT WHERE pseq = ?";
+		String sql = "SELECT pseq, name, kind, price2, content, NVL(image, 'default.jpg') image, bestyn, indate FROM PRODUCT WHERE pseq = ?";
 		ProductDto pd = null;
 		
 		try {
@@ -111,7 +111,7 @@ public class sampleDBDao {
 				pd.setPseq(rs.getInt("pseq"));
 				pd.setName(rs.getString("name"));
 				pd.setKind(rs.getString("kind"));
-				pd.setPrice1(rs.getInt("price1"));
+				pd.setPrice2(rs.getInt("price2"));
 				pd.setContent(rs.getString("content"));
 				pd.setImage(rs.getString("image"));
 				pd.setBestyn(rs.getString("bestyn"));
@@ -129,7 +129,7 @@ public class sampleDBDao {
 	}
 	
 	public int updateProductInfo(ProductDto pd) {
-		String sql = "UPDATE product SET pseq = ?, name = ?, kind = ?, price1 = ?, bestyn = ?, image = ? WHERE pseq = ?";
+		String sql = "UPDATE product SET pseq = ?, name = ?, kind = ?, price2 = ?, bestyn = ?, image = ? WHERE pseq = ?";
 		int result = 0;
 		try {
 			connect();
@@ -138,7 +138,7 @@ public class sampleDBDao {
 			psmt.setInt(1, pd.getPseq());
 			psmt.setString(2, pd.getName());
 			psmt.setString(3, pd.getKind());
-			psmt.setInt(4, pd.getPrice1());
+			psmt.setInt(4, pd.getPrice2());
 			psmt.setString(5, pd.getBestyn());
 			psmt.setString(6, pd.getImage());
 			psmt.setInt(7, pd.getPseq());

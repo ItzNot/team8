@@ -50,7 +50,7 @@
 								<td><%= pd.getPseq() %></td>
 								<td><a href="ProductInfoDetail.jsp?pseq=<%= pd.getPseq()%>"><%= pd.getName() %></a></td>
 								<td><%= pd.getKind() %></td>
-								<td><%= pd.getPrice1()+"원" %></td>
+								<td><%= pd.getPrice2()+"원" %></td>
 								<td><%= pd.getBestyn() %></td>
 								<td><%= pd.getIndate() %></td>
 							</tr>

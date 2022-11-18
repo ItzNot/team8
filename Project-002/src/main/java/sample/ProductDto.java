@@ -6,7 +6,7 @@ public class ProductDto {
 	int pseq;
 	String name;
 	String kind;
-	int price1;
+	int price2;
 	String content;
 	String image;
 	String bestyn;
@@ -29,11 +29,11 @@ public class ProductDto {
 	public void setKind(String kind) {
 		this.kind = kind;
 	}
-	public int getPrice1() {
-		return price1;
+	public int getPrice2() {
+		return price2;
 	}
-	public void setPrice1(int price1) {
-		this.price1 = price1;
+	public void setPrice2(int price2) {
+		this.price2 = price2;
 	}
 	public String getContent() {
 		return content;
@@ -61,7 +61,7 @@ public class ProductDto {
 	}
 	@Override
 	public String toString() {
-		return "ProductDto [pseq=" + pseq + ", name=" + name + ", kind=" + kind + ", price1=" + price1 + ", content="
+		return "ProductDto [pseq=" + pseq + ", name=" + name + ", kind=" + kind + ", price2=" + price2 + ", content="
 				+ content + ", image=" + image + ", bestyn=" + bestyn + ", indate=" + indate + "]";
 	}
 }
