@@ -18,7 +18,7 @@ public class ShopServlet extends HttpServlet {
       HttpServletResponse response) throws ServletException, IOException {
 	 //Command 요청 이클립스 Console 내 확인 
 	String command = request.getParameter("command");
-    System.out.println("ShopServlet에서 요청을 받음을 확인 : " + command);
+    System.out.println("서블릿 요청: " + command);
 
     ActionFactory af = ActionFactory.getInstance();
     Action action = af.getAction(command);

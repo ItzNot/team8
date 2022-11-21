@@ -60,7 +60,7 @@
     <nav id="top_menu">
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="ShopServlet?command=catagory&kind=1" class="nav-link px-2 link-dark">항목 1</a>
+          <a href="ShopServlet?command=catagory&kind=1" class="nav-link px-2 link-dark">Kind 1</a>
         </li>&nbsp;&nbsp;&nbsp;
         <li>
           <a href="ShopServlet?command=catagory&kind=2" class="nav-link px-2 link-dark">Kind 2</a>

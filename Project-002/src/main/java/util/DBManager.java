@@ -6,12 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//사용자 정보 설정 
 public class DBManager {
 	private static String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 	private static String uid = "scott";
 	private static String pwd = "tiger";
 
-	// ī�ؼ� ������
+//db 연결 	
 	public static Connection getConnection() {
 		Connection conn = null;
 		try {

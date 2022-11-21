@@ -20,9 +20,7 @@
         <div id="buttons">
             <input type="submit" value="로그인">
             <input type="button" value="회원가입" 
-                 onclick="location='ShopServlet?command=join_form'">
-            <input type="button" value="아이디 비밀번호 찾기" 
-                 onclick="location='ShopServlet?command=find_id_form'">     
+                 onclick="location='ShopServlet?command=join_form'">  
         </div>
     </form>  
   </article>

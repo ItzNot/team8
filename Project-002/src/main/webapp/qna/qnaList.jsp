@@ -26,7 +26,6 @@
       </tr>
       </c:forEach>    
       </table>
-      <div class="clear"></div>
       <div id="buttons" style="float:right">
       <input type="button"  value="1:1 질문하기"  class="submit"    
 onclick="location.href='ShopServlet?command=qna_write_form'"> 

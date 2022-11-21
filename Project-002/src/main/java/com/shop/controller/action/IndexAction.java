@@ -1,15 +1,15 @@
 package com.shop.controller.action;
 
 import java.io.IOException;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shop.dao.ProductDAO;
-import com.shop.dto.ProductVO;
+//import com.shop.dao.ProductDAO;
+//import com.shop.dto.ProductVO;
 
 public class IndexAction implements Action {
 
@@ -18,12 +18,12 @@ public class IndexAction implements Action {
       throws ServletException, IOException {    
     String url = "/index.jsp";
     
-    ProductDAO productDAO=ProductDAO.getInstance();
-    ArrayList<ProductVO> newProductList = productDAO.listNewProduct();
-    ArrayList<ProductVO> bestProductList = productDAO.listBestProduct();
-    
-    request.setAttribute("newProductList", newProductList);
-    request.setAttribute("bestProductList", bestProductList);
+//    ProductDAO productDAO=ProductDAO.getInstance();
+//    ArrayList<ProductVO> newProductList = productDAO.listNewProduct();
+//    ArrayList<ProductVO> bestProductList = productDAO.listBestProduct();
+//    
+//    request.setAttribute("newProductList", newProductList);
+//    request.setAttribute("bestProductList", bestProductList);
     
     RequestDispatcher dispatcher = request.getRequestDispatcher(url);
     dispatcher.forward(request, response);
