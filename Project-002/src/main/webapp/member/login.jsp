@@ -7,10 +7,14 @@
     <h1>Login</h1><br>
     <form method="post" action="ShopServlet?command=login">
         <fieldset>
-          <label>User ID</label>
-          <input name="id" type="text" value="${id}" value="one"><br><br> 
-          <label>Password</label> 
-          <input name="pwd" type="password"><br><br>
+        <div class="form-group col-md-4" >
+			<label for="formGroupExampleInput">ID</label>
+			<input type="text" class="form-control" name="id">
+		</div>
+		<div class="form-group col-md-4" >
+			<label for="formGroupExampleInput">PW</label>
+			<input type="password" class="form-control" name="pwd">
+		</div><br>
         </fieldset>
         <div class="clear"></div>
         <div id="buttons">

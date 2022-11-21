@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>  
 <%@ include file="../header.jsp" %>  
-<%@ include file="mySubMenu.jsp" %>       
+<%@ include file="mySubMenu.jsp" %>  
+  <div class="container py-5 h-100">  
+  <div class="row justify-content-center align-items-center h-100">       
   <article>
     <h2> Cart List </h2>
     <form name="formm" method="post">
@@ -10,7 +12,7 @@
       <h3 style="color: red;text-align: center;"> 장바구니가 비었습니다. </h3> 
     </c:when>
     <c:otherwise>
-      <table id="cartList">
+      <table id="cartList" class="table">
         <tr>
           <th>상품명</th><th>수 량</th><th>가 격</th><th>주문일</th><th>삭 제</th>    
         </tr>
@@ -18,7 +20,7 @@
         <c:forEach items="${cartList}"  var="cartVO">
         <tr>      
           <td>
-            <a href="ShopServlet?command=product_detail&pseq=${cartVO.pseq}">
+            <a href="ShopServlet?command=product_detail&pseq=${cartVO.pseq}" class="nav-link link-dark">
               <h3> ${cartVO.pname} </h3>              
             </a>    
           </td>
@@ -38,7 +40,7 @@
           <th colspan="2"> 
             <fmt:formatNumber value="${totalPrice}" type="currency"/><br>
           </th> 
-          <th><a href="#" onclick="go_cart_delete()"><h3>삭제하기</h3></a></th>                       
+          <th><a href="#" onclick="go_cart_delete()" class="link-dark"><h3>삭제하기</h3></a></th>                       
         </tr> 
       </table> 
     </c:otherwise>  
@@ -56,4 +58,6 @@ onclick="go_order_insert()">
      </div>
     </form>
   </article>
+  </div>
+  </div>
 <%@ include file="../footer.jsp" %>

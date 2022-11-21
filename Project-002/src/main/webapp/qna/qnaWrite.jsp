@@ -11,15 +11,19 @@
 		action="ShopServlet?command=qna_write">
 			<fieldset>	
 				<legend>Board Info</legend>		
-			    <label>Title</label>
-			    <input type="text" name="subject"  size="77" ><br>
-				<label>Content</label>
-			    <textarea rows="8" cols="65" name="content"></textarea><br>
-			</fieldset>   
-		<div class="clear"></div>
-		 <div id="buttons" style="float:right">
+				<div class="form-group col-md-8" >
+				  <label for="formGroupExampleInput">제목</label>
+				  <input type="text" class="form-control" name="subject"  size="77">
+				</div>
+				 <div class="form-group col-md-8">
+				   <label for="exampleFormControlTextarea1">내용</label>
+				   <textarea class="form-control" name="content" rows="8"></textarea>
+				 </div>
+			</fieldset><br>   
+			
+		 <div id="buttons" style="float:bottom">
 			<input type="submit"  value="글쓰기"     class="submit"> 
-			<input type="reset"   value="취소"     class="cancel">
+			<input type="reset"   value="삭제"     class="cancel">
 			<input type="button"  value="쇼핑 계속하기"  class="submit"  onclick="location.href='ShopServlet?command=index'">	
 		  </div>
 		</form>

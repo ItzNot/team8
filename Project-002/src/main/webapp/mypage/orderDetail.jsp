@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>  
 <%@ include file="../header.jsp" %>  
-<%@ include file="mySubMenu.jsp" %>       
+<%@ include file="mySubMenu.jsp" %>  
+  <div class="container py-5 h-100">  
+  <div class="row justify-content-center align-items-center h-100">       
   <article>
     <h2> My Page(주문 상세 정보) </h2>
     <form name="formm" method="post">
       <h3> 주문자 정보 </h3>     
-      <table id="cartList">      
+      <table id="cartList" class="table">      
       <tr>
         <th>주문일자</th> <th>주문번호</th> <th>주문자</th>
  <th> 주문 총액</th>     
@@ -20,7 +22,7 @@ value="${totalPrice}" /> </td>
      </tr>    
      </table>         
      <h3> 주문 상품 정보 </h3> 
-     <table id="cartList">
+     <table id="cartList" class="table">
      <tr>
        <th>상품명</th> <th>상품별주문번호</th> <th>수량</th>
  <th>가격</th> <th>처리 상태</th>    
@@ -49,4 +51,6 @@ onclick="location.href='ShopServlet?command=index'">
      </div>
     </form>  
   </article>
+  </div>
+  </div>
 <%@ include file="../footer.jsp" %>

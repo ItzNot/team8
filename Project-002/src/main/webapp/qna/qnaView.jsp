@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>   
 <%@ include file="qnaSubNav.jsp" %>   
+  <div class="container py-5 h-100">  
+  <div class="row justify-content-center align-items-center h-100">  
   <article>
       <h2> 1:1 고객 게시판 </h2>
       <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h3>    
     <form name="formm" method="post">
-    <table id="notice">
+    <table id="notice" class="table">
       <tr>
               <th>제목</th>
               <td>${qnaVO.subject}</td> 
@@ -31,4 +33,6 @@
       </div>
     </form>
   </article>
+  </div>
+  </div>
 <%@ include file="../footer.jsp" %>

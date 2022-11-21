@@ -8,28 +8,29 @@
   
   
   <article>
+ 
      <h2 class="pb-2 pb-md-0">회원가입</h2>
     <form id="join" action="ShopServlet?command=join" method="post" name="formm">
       <fieldset>
         <legend>기본 정보</legend>
-        <label for="form-label">ID</label>
+        <label for="form-label">ID</label> <br>
         <input type="text" name="id" >
         <input type="hidden" name="reid">
         <input type="button" value="중복 체크" onclick="idcheck()"><br><br>
         
-        <label>비밀번호</label> 
+        <label>비밀번호</label> <br>
         <input type="password"  name="pwd"><br><br> 
         
-        <label>비밀번호 확인</label> 
+        <label>비밀번호 확인</label> <br>
         <input type="password"  name="pwdCheck"><br><br> 
         
-        <label>성함</label>
+        <label>성함</label> <br>
         <input type="text" name="name"><br><br> 
         
-        <label>이메일</label>
-        <input type="text" name="email"><br><br>
+        <label>이메일</label> <br>
+        <input type="text" name="email" ><br><br>
         
-        <label>휴대전화</label> 
+        <label>휴대전화</label> <br>
         <input  type="text" name="phone"><br>
         
         

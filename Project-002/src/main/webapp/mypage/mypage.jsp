@@ -7,7 +7,7 @@
   <article>
     <h2> My Page(${title}) </h2>
     <form name="formm" method="post">
-      <table id="cartList">
+      <table id="cartList" class="table">
       <tr>
         <th>주문일자</th> <th>주문번호</th> <th>상품명</th> <th>결제 금액</th> <th>주문 상세</th> </th>    
       </tr>
