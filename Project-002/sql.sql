@@ -1,13 +1,3 @@
--- admin 
---drop table worker;
---create table worker(          
---    id          varchar2(20)  primary key,
---    pwd         varchar2(20)
--- 추가입력정보 (필요에 따라 추가)
---    name        varchar2(40),
---    phone       varchar2(20)
---);
-
 --기존 테이블 제거 
 alter table member drop primary key cascade;
 drop table member;
@@ -76,7 +66,7 @@ create table order_detail(
 drop sequence order_detail_seq;
 create sequence order_detail_seq start with 1;
 
---Q&A 게시판은 고객이 쇼핑몰에서 제품의 문의사항 또는 배송문의와 같은 제반적인 사항에 대해서 질문을 하고자 할 때 사용한다. 
+--QnA 테이블 생성 
 alter table qna drop primary key cascade;
 drop table qna;
 create table qna (
@@ -90,3 +80,20 @@ create table qna (
 ); 
 drop sequence qna_seq;
 create sequence qna_seq start with 1;
+
+--장바구니 보기 뷰 생성 
+create or replace view cart_view
+as
+select o.cseq, o.id, o.pseq, m.name mname, p.name pname, 
+o.quantity, o.indate, p.price2, o.result 
+from cart o, member m, product p 
+where o.id = m.id and o.pseq = p.pseq
+and result='1';
+
+--주문 보기 뷰 생성 
+create or replace view order_view
+as
+select d.odseq, o.oseq, o.id, o.indate, d.pseq,d.quantity, m.name mname,
+m.zip_num, m.address, m.phone, p.name pname, p.price2, d.result   
+from orders o, order_detail d, member m, product p 
+where o.oseq=d.oseq and o.id = m.id and d.pseq = p.pseq;
